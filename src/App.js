@@ -28,37 +28,18 @@ const XDictionary = () => {
   };
 
   return (
-    <div
-      style={{
-        fontFamily: "Arial, sans-serif",
-        padding: "20px",
-        maxWidth: "400px",
-        margin: "auto",
-      }}
-    >
+    <div>
       <h1>Dictionary App</h1>
-      <div style={{ display: "flex", marginBottom: "10px" }}>
+      <div style={{ display: "flex" }}>
         <input
           type="text"
           placeholder="Enter a word"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          style={{
-            flex: "1",
-            padding: "10px",
-            border: "1px solid #ccc",
-            borderRadius: "5px 0 0 5px",
-            boxSizing: "border-box",
-          }}
         />
         <button
           onClick={handleSearch}
           style={{
-            padding: "10px",
-            backgroundColor: "#007BFF",
-            color: "white",
-            border: "none",
-            borderRadius: "0 5px 5px 0",
             cursor: "pointer",
             fontWeight: "bold",
           }}
@@ -66,14 +47,11 @@ const XDictionary = () => {
           Search
         </button>
       </div>
-      <p style={{ fontWeight: "700", fontSize: "20px" }}>Definiton:</p>
+      <p style={{ fontWeight: "700", fontSize: "15px" }}>Definiton:</p>
       <div
         style={{
           marginTop: "20px",
           padding: "10px",
-          border: "1px solid #ccc",
-          borderRadius: "5px",
-          backgroundColor: "#f9f9f9",
         }}
       >
         {result}
