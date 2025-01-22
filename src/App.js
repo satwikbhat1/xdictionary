@@ -14,47 +14,36 @@ const XDictionary = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [result, setResult] = useState("");
 
-  // Handle search button click
   const handleSearch = () => {
+    if (searchTerm.trim() === "") {
+      setResult("Word not found in the dictionary.");
+      return;
+    }
+
     const foundItem = dictionary.find(
       (entry) => entry.word.toLowerCase() === searchTerm.trim().toLowerCase()
     );
 
-    if (foundItem) {
-      setResult(foundItem.meaning);
-    } else {
-      setResult("Word not found in the dictionary.");
-    }
+    setResult(
+      foundItem ? foundItem.meaning : "Word not found in the dictionary."
+    );
   };
 
   return (
     <div>
-      <h1>Dictionary App</h1>
-      <div style={{ display: "flex" }}>
+      <h1>XDictionary</h1>
+      <div>
         <input
           type="text"
           placeholder="Enter a word"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button
-          onClick={handleSearch}
-          style={{
-            cursor: "pointer",
-            fontWeight: "bold",
-          }}
-        >
-          Search
-        </button>
+        <button onClick={handleSearch}>Search</button>
       </div>
-      <p style={{ fontWeight: "700", fontSize: "15px" }}>Definiton:</p>
-      <div
-        style={{
-          marginTop: "20px",
-          padding: "10px",
-        }}
-      >
-        {result}
+      <div>
+        <strong>Definition:</strong>
+        <p>{result}</p>
       </div>
     </div>
   );
